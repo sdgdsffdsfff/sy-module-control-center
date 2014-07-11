@@ -39,14 +39,14 @@
           	<#list menus as menu>
 				<#if menu.subMenu?size <= 0 >
 					<li>
-						<a href="javascript:void(0);" linkUrl="${menu.linkUrl }" linkType="${menu.linkType}" class="control_center_menu" >${menu.title }</a>
+						<a href="javascript:void(0);" linkurl="${menu.linkUrl }" linktype="${menu.linkType}" class="control_center_menu" >${menu.title }</a>
 					</li>
 				<#else>
             		<li class="dropdown">
               			<a href="#" class="dropdown-toggle" data-toggle="dropdown">${menu.title }<span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<#list menu.subMenu as subMenu >
-								<li><a href="javascript:void(0);" linkUrl="${subMenu.linkUrl }" linkType="${subMenu.linkType}" class="control_center_menu" >${subMenu.title }</a></li>
+								<li><a href="javascript:void(0);" linkurl="${subMenu.linkUrl }" linktype="${subMenu.linkType}" class="control_center_menu" >${subMenu.title }</a></li>
           					</#list> 
 						</ul>
 					</li>

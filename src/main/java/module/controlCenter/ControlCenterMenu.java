@@ -21,7 +21,7 @@ public class ControlCenterMenu {
 	private static List<ControlCenterMenu> rootMenus = new ArrayList<ControlCenterMenu>();
 	
 	static {
-		new ControlCenterMenu("首页", "controlCenter/content_index.do").appenToRoot();
+		new ControlCenterMenu("首页", "controlCenter/control_index.do").appenToRoot();
 //		new ControlCenterMenu("测试子菜单", "")
 //			.appendSubMenu(new ControlCenterMenu("sub1", "http://www.baidu.com"))
 //			.appendSubMenu(new ControlCenterMenu("sub2", "http://www.baidu.com"))

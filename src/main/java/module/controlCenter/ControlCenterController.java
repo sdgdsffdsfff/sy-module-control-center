@@ -16,9 +16,9 @@ public class ControlCenterController {
 	}
 
 	
-	@ModuleAction(url="content_index")
-	public String content_index() {
-		return "freemarker:/module/controlCenter/view/content_index";
+	@ModuleAction(url="control_index")
+	public String control_index() {
+		return "freemarker:/module/controlCenter/view/control_index";
 	}
 	
 }

@@ -43,10 +43,10 @@ $(document).ready(function() {
 	$(".control_center_menu").click(function() {
 		$(this).parents(".navbar").find(".active").removeClass("active");
 		$(this).parents("li").addClass("active");
-		var linkUrl = $(this).attr("linkUrl");
-		var linkType = $(this).attr("linkType");
-		if (linkType == "control-center") {
-			loadPage(linkUrl);
+		var linkurl = $(this).attr("linkurl");
+		var linktype = $(this).attr("linktype");
+		if (linktype == "control-center") {
+			loadPage(linkurl);
 			$(this).parents(".dropdown").removeClass("open");
 			return false;
 		} else {
@@ -56,7 +56,13 @@ $(document).ready(function() {
 	});
 	
 	// 加载首页
-	$(".control_center_menu")[0].click();
+	var def_open = "controlCenter/control_index.do";
+	if (window.location.href.indexOf("#") != -1) {
+		def_open = window.location.href.substring(window.location.href.indexOf("#")+1, window.location.href.length);
+	}
+	console.log('.control_center_menu[linkurl="'+def_open+'"]');
+	console.log($('.control_center_menu[linkurl="'+def_open+'"]'));
+	$('.control_center_menu[linkurl="'+def_open+'"]').click();
 	
 	
 	
