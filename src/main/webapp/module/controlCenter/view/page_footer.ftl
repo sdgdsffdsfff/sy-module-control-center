@@ -16,6 +16,9 @@
     <@res resid="momentjs" />
     <@res resid="jquery-json" />
     <@res resid="my97DatePicker" />
+    
+    <@res resid="jquery-form" />
+    <@res resid="artDialog" />
 
     <@res resid="bootstrap" include=".*\\.js" />
     <@res resid="jquery-showLoading" />
