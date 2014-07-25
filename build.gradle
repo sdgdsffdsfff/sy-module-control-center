@@ -34,8 +34,8 @@ repositories {
 dependencies {
 	
     compile 'sy-module:module-core:2.0a1'
-    compile 'sy-module:module-wx-service:1.2a9'
 	
+    testCompile 'sy-module:module-wx-service:1.2a9'
 	testCompile 'commons-dbcp:commons-dbcp:1.4'
 	testCompile 'mysql:mysql-connector-java:5.1.24'
 	
