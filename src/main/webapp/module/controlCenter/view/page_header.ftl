@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>微信服务框架-控制中心</title>
+    <title>控制中心</title>
     <base href="${request_context.basePath}module/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
