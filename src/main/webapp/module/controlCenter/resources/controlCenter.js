@@ -60,8 +60,6 @@ $(document).ready(function() {
 	if (window.location.href.indexOf("#") != -1) {
 		def_open = window.location.href.substring(window.location.href.indexOf("#")+1, window.location.href.length);
 	}
-	console.log('.control_center_menu[linkurl="'+def_open+'"]');
-	console.log($('.control_center_menu[linkurl="'+def_open+'"]'));
 	$('.control_center_menu[linkurl="'+def_open+'"]').click();
 	
 	

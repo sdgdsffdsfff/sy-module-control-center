@@ -11,6 +11,11 @@
 
     </div> <!-- /container --> 
 
+    
+    <@res resid="highcharts" />
+    <@res resid="momentjs" />
+    <@res resid="jquery-json" />
+    <@res resid="my97DatePicker" />
 
     <@res resid="bootstrap" include=".*\\.js" />
     <@res resid="jquery-showLoading" />

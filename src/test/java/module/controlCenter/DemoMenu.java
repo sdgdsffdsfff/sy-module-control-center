@@ -11,7 +11,9 @@ import sy.module.core.mvc.annotation.ModuleFollowContainerInit;
 public class DemoMenu {
 	
 	static {
-		new ControlCenterMenu("测试页面", "").appendSubMenu(new ControlCenterMenu("测试页面", "controlCenter/demoPage.do")).appenToRoot();
+		//new ControlCenterMenu("测试页面", "")
+		//		.appendSubMenu(new ControlCenterMenu("测试页面", "controlCenter/demoPage.do"))
+		//		.appenToRoot();
 	}
 	
 	@ModuleAction(url="demoPage", method=ModuleActionHttpMethod.GET)

@@ -34,6 +34,10 @@ repositories {
 dependencies {
 	
     compile 'sy-module:module-core:2.0a1'
+    compile 'sy-module:module-wx-service:1.2a9'
+	
+	testCompile 'commons-dbcp:commons-dbcp:1.4'
+	testCompile 'mysql:mysql-connector-java:5.1.24'
 	
 }
 
@@ -91,16 +95,6 @@ task createSyXml << {
 	def writer = new StringWriter()
 	def xml = new groovy.xml.MarkupBuilder(writer)
 	xml.sy() {
-		dbinit(dbtype:'mysql') {
-			checkConnectionSql('select 1')
-			checkTableName('module_wxservice_msg_dump')
-			initSqlPath('module/'+developerName+'/mysql-init.sql')
-		}
-		dbinit(dbtype:'sqlserver') {
-			checkConnectionSql('select 1')
-			checkTableName('module_wxservice_msg_dump')
-			initSqlPath('module/'+developerName+'/sqlserver-init.sql')
-		}
 		resources() {
 			release() {
 				from('webapp/module/'+developerName+'/resources')

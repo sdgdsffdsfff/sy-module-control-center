@@ -1,7 +1,16 @@
 package module.controlCenter;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.w3c.dom.Element;
+
+import sy.module.core.moduleconfig.ModuleConfig;
+import sy.module.core.mvc.annotation.ModuleFollowContainerInit;
+import sy.module.core.util.XmlHelper;
 
 /**
  * 控制中心菜单
@@ -16,12 +25,47 @@ import java.util.List;
  * @author 石莹 @ caituo
  *
  */
+@ModuleFollowContainerInit
 public class ControlCenterMenu {
+	private static final Log log = LogFactory.getLog(ControlCenterMenu.class);
 	
 	private static List<ControlCenterMenu> rootMenus = new ArrayList<ControlCenterMenu>();
 	
-	static {
+	public ControlCenterMenu() {
+		
 		new ControlCenterMenu("首页", "controlCenter/control_index.do").appenToRoot();
+		
+		/**
+		 <sy>
+		  <controlCenter>
+		  	<menu name="" >
+			    <item>
+			      <name>webapp/module/core</name>
+			      <url>../../module/core</url>
+			    </item>
+		  	</menu>
+		  </controlCenter>
+		</sy>
+		 */
+		for (File jar : ModuleConfig.getModuleConfigs().keySet()) {
+			try {
+				Element conf = ModuleConfig.getModuleConfigs().get(jar);
+				for (Element cc : XmlHelper.getElementsByName(conf, "controlCenter")) {
+					for (Element cm : XmlHelper.getElementsByName(cc, "menu")) {
+						String name = cm.getAttribute("name");
+						ControlCenterMenu ccm = new ControlCenterMenu(name, "");
+						for (Element item : XmlHelper.getElementsByName(cm, "item")) {
+							ccm.appendSubMenu(new ControlCenterMenu(
+									XmlHelper.getElementByName(item, "display").getTextContent().trim(), 
+									XmlHelper.getElementByName(item, "url").getTextContent().trim()));
+						}
+						ccm.appenToRoot();
+					}
+				}
+			} catch (Exception e) {
+				log.warn("scan package ["+jar+"] faild.", e);
+			}
+		}
 //		new ControlCenterMenu("测试子菜单", "")
 //			.appendSubMenu(new ControlCenterMenu("sub1", "http://www.baidu.com"))
 //			.appendSubMenu(new ControlCenterMenu("sub2", "http://www.baidu.com"))
