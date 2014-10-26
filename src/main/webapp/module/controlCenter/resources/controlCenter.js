@@ -56,11 +56,14 @@ $(document).ready(function() {
 	});
 	
 	// 加载首页
+	var isAutoLoad = ($(".control_center_main_area").attr("auto_load") != "false");
 	var def_open = "controlCenter/control_index.do";
 	if (window.location.href.indexOf("#") != -1) {
 		def_open = window.location.href.substring(window.location.href.indexOf("#")+1, window.location.href.length);
 	}
-	$('.control_center_menu[linkurl="'+def_open+'"]').click();
+	if (isAutoLoad) {
+		$('.control_center_menu[linkurl="'+def_open+'"]').click();
+	}
 	
 	
 	

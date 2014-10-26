@@ -19,6 +19,7 @@
     
     <@res resid="jquery-form" />
     <@res resid="artDialog" />
+    <@res resid="artTemplate" />
 
     <@res resid="bootstrap" include=".*\\.js" />
     <@res resid="jquery-showLoading" />

@@ -7,7 +7,7 @@ sourceCompatibility = '1.6'
 targetCompatibility = '1.6'
 groupId = 'sy-module'
 artifactId = 'module-control-center'
-version = '1.1'
+version = '1.1a1'
 developerName = 'controlCenter'
 
 
@@ -22,8 +22,8 @@ jar {
 
 // 中央库
 repositories {
-    maven { url 'file://C:\\Users\\Administrator\\git\\repo' }
-    maven { url 'http://192.168.0.220:8081/nexus/content/groups/public/' }
+    maven { url 'file://C:\\Users\\shiying\\git\\repo' }
+    // maven { url 'http://192.168.0.220:8081/nexus/content/groups/public/' }
     maven { url 'https://raw.githubusercontent.com/wonder-sy0618/repo/master/' }
     maven { url 'http://maven.oschina.net/content/groups/public/' }
 	mavenCentral()
@@ -33,7 +33,7 @@ repositories {
 // 依赖
 dependencies {
 	
-    compile 'sy-module:module-core:2.0a1'
+    compile 'sy-module:module-core:2.0a8'
 	
     testCompile 'sy-module:module-wx-service:1.2a9'
 	testCompile 'commons-dbcp:commons-dbcp:1.4'

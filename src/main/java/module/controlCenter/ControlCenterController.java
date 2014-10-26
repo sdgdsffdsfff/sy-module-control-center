@@ -14,6 +14,7 @@ import sy.module.core.mvc.annotation.ModuleAction;
 import sy.module.core.mvc.annotation.ModuleActionParmar;
 import sy.module.core.mvc.annotation.ModuleController;
 import sy.module.core.mvc.annotation.ModuleFilter;
+import sy.module.core.util.string.StringLoadUtil;
 
 @ModuleController(namespace="module/controlCenter/")
 public class ControlCenterController {
@@ -91,9 +92,25 @@ public class ControlCenterController {
 	
 	
 	@ModuleAction(url="index")
-	public String index(HttpServletRequest request) {
+	public String index(HttpServletRequest request, @ModuleActionParmar(name="target") String target) {
 		// 写入后台菜单
 		request.setAttribute("menus", ControlCenterMenu.getRootMenus());
+		// 测试地址
+		if (target != null && !target.equals("")) {
+			try {
+				request.setAttribute("target", target);
+				request.setAttribute(
+						"testTarget", 
+						StringLoadUtil.loadAsStringUrl(
+								target.startsWith("http://") 
+								? 
+									target 
+								: 
+									(ModuleCoreFilter.getRequestContext().basePath + target)));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		return "freemarker:/module/controlCenter/view/index";
 	}
 
