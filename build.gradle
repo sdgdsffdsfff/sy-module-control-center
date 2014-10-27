@@ -22,8 +22,8 @@ jar {
 
 // 中央库
 repositories {
-    maven { url 'file://C:\\Users\\shiying\\git\\repo' }
-    // maven { url 'http://192.168.0.220:8081/nexus/content/groups/public/' }
+    maven { url 'file://C:\\Users\\Administrator\\git\\repo' }
+    maven { url 'http://192.168.0.220:8081/nexus/content/groups/public/' }
     maven { url 'https://raw.githubusercontent.com/wonder-sy0618/repo/master/' }
     maven { url 'http://maven.oschina.net/content/groups/public/' }
 	mavenCentral()
